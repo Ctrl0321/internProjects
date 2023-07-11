@@ -80,4 +80,20 @@
     "last_modified_date":"2022-08-08"
 
 }
+,{
+    "employee_id" :"6",
+    "first_name":"Sandarenu",
+    "last_name":"kumar",
+    "age":"22",
+    "gender":"Male",
+    "designation":"Intern",
+    "address":"554,swiss",
+    "email":"sa45@gmail.com",
+    "mobile_number":"1234567890",
+    "department_id":"1",
+    "faction_id":"2",
+    "sbu_id":"3",
+    "last_modified_date":"2022-08-08"
+
+}
 ]
