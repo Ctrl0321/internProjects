@@ -124,6 +124,15 @@ printjson(
     .count()
 );
 printjson(
+  "people are joining HMS in the year 2019 ",
+  db.employee
+    .find({
+      $and: [{ department_id: "2" }, { sbu_id: "3" }],
+    })
+    .count()
+);
+
+printjson(
   "Working department ID of Sandarenu is ",
   db.employee.findOne({ first_name: "Sandarenu" }).department_id
 );
