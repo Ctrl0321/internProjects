@@ -1,0 +1,7 @@
+Describe the difference between var & val. Which one we should ideally be using in our projects?
+
+
+Var -  var stand for variable and var used to declare mutable variables (Value can change)
+Val -  val stands for value and val used to declare immutable variables (Value cannot change)
+
+We ideally using val for declaring variables because helps make our code more predictable but some case we need a mutable variables that time we have to use a var for that

@@ -1,0 +1,11 @@
+
+What is a null value in kotlin? How does kotlin ensures null safety? Show with examples.
+
+Null value in kotlin indicates that a variable or property does not currently hold any
+meaningful data
+
+var string1: String? = "Hello"
+string1 = null // Assigning null is allowed
+
+var string2: String = "Hello"
+string2 = null // Compilation error: Null cannot be a value of a non-null type
