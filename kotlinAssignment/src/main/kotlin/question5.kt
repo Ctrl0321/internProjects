@@ -5,7 +5,7 @@ class Aathiq {
         print(qualification)
     }
 }
-fun main(args: Array<String>) {
+fun main() {
     var  firstQualification = Aathiq()
     firstQualification.qualification = "Computer Scientist"
     //a1.printMySkills()
@@ -14,9 +14,9 @@ fun main(args: Array<String>) {
     secondQualification.qualification= "data scientist"
     //a2.printMySkills()
 
-    var  toalQulafication = Aathiq()
-    toalQulafication.qualification = firstQualification.addQualification(secondQualification)
-    toalQulafication.getQualification()
+    var  totalQualification = Aathiq()
+    totalQualification.qualification = firstQualification.addQualification(secondQualification)
+    totalQualification.getQualification()
 }
 fun Aathiq.addQualification(user:Aathiq):String{
     var a4 = Aathiq()
