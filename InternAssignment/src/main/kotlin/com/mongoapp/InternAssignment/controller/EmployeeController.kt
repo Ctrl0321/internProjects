@@ -1,34 +1,47 @@
 package com.mongoapp.InternAssignment.controller
 
+import com.mongoapp.InternAssignment.datasource.EmployeeId
 import com.mongoapp.InternAssignment.model.Employees
 import com.mongoapp.InternAssignment.service.EmployeeService
 import org.springframework.http.HttpStatus
-import org.springframework.web.bind.annotation.DeleteMapping
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.ResponseStatus
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
+import java.util.NoSuchElementException
 
 
 @RestController
 @RequestMapping("/api/employees")
 class EmployeeController(private val service: EmployeeService) {
 
+    @ExceptionHandler(NoSuchElementException::class)
+    fun handleNotFound(e: NoSuchElementException): ResponseEntity<String> =
+        ResponseEntity(e.message,HttpStatus.NOT_FOUND)
+
+
+
     @GetMapping("")
     fun getEmployees():Collection<Employees> = service.getEmployees()
 
-    @PostMapping("/add")
+    @PostMapping("")
     @ResponseStatus(HttpStatus.CREATED)
     fun addEmployee(@RequestBody employee:Employees):Employees=service.addEmployee(employee)
 
-    @GetMapping("/find/{firstName}")
-    fun findEmployee(@PathVariable firstName:String):Employees=service.findEmployee(firstName)
+//    @GetMapping("/{firstName}")
+//    fun findEmployee(@PathVariable firstName:String):Employees=service.findEmployee(firstName)
 
-    @DeleteMapping("/delete/{firstName}")
-    fun deleteEmployee(@PathVariable firstName: String):Employees=service.deleteEmployee(firstName)
+    @GetMapping("/{employeeId}")
+    fun findEmployeeById(@PathVariable employeeId:Int):Employees{
+
+        return service.findEmployeeById(employeeId)
+    }
+
+    @DeleteMapping("/{employeeId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    fun deleteEmployee(@PathVariable employeeId :Int):Employees= service.deleteEmployee(employeeId)
+
+
+//    @PatchMapping("/patch")
+//    fun patchEmployee(@RequestBody employee: Employees):Employees=service.patchEmployee(employee)
 
 
 }

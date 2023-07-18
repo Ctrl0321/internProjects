@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface EmployeesRepository : MongoRepository<Employees,String> {
-     fun findByFirstName(firstName: String): Employees
-     fun deleteByFirstName(firstName: String): Employees
+    fun deleteByEmployeeId(employeeId: Int): Employees
+    fun findByEmployeeId(employeeId: Int): Employees
 
 
 }
