@@ -49,5 +49,11 @@ class EmployeeController(private val service: EmployeeService) {
     @PatchMapping("patch/{employeeId}")
      fun updateEmployee(@RequestBody employee: Employees,@PathVariable employeeId: Int):Employees=service.updateEmployee(employee,employeeId)
 
+    @GetMapping("/firstLetter/{firstLetter}")
+    fun gtEmployeeWithFirstLetter(@PathVariable firstLetter:String):List<Employees> = service.getEmployeeWithFirstLetter(firstLetter)
+
+
+
+
 
 }

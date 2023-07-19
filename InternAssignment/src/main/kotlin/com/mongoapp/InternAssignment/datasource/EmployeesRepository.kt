@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository
 interface EmployeesRepository : MongoRepository<Employees,Int> {
     fun deleteByEmployeeId(employeeId: Int): Employees
     fun findByEmployeeId(employeeId: Int): Employees?
-
+//    fun findByFirstNameRegexIgnoreCase(regexPattern: String): List<Employees>
+    fun findByFirstNameStartingWithIgnoreCase(firstLetter: String): List<Employees>
 
 
 }

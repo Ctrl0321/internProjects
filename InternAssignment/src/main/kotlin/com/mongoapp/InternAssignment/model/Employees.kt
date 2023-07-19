@@ -19,7 +19,7 @@ data class Employees(
     "firstName":"",
     "surName":"",
     "position":"",
-    "department:
+    "departmentId":
 }
 
 */

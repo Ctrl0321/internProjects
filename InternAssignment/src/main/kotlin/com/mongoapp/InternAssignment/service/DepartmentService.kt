@@ -7,8 +7,9 @@ import org.springframework.stereotype.Service
 import kotlin.jvm.Throws
 
 @Service
-class DepartmentService(val repository: DepartmentsRepository) {
-    fun getDepartments(): Collection<Departments> =repository.findAll()
+class
+DepartmentService(val repository: DepartmentsRepository) {
+    fun getDepartments(): List<Departments> =repository.findAll()
     fun addDepartment(department: Departments): Departments =repository.save(department)
     fun deleteDepartment(departmentId: Int): Departments {
         repository.findByDepartmentId(departmentId)?.let {

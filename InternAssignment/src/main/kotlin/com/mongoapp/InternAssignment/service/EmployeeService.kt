@@ -3,6 +3,8 @@ import com.mongoapp.InternAssignment.datasource.DepartmentsRepository
 import com.mongoapp.InternAssignment.datasource.EmployeesRepository
 import com.mongoapp.InternAssignment.model.Departments
 import com.mongoapp.InternAssignment.model.Employees
+import org.springframework.data.mongodb.core.query.Criteria
+import org.springframework.data.mongodb.core.query.Query
 import org.springframework.stereotype.Service
 import java.util.*
 
@@ -57,5 +59,22 @@ class EmployeeService(val employeeRepository: EmployeesRepository, val depReposi
         return  addEmployee(employee)
     }
 
+    fun getEmployeeWithFirstLetter(firstLetter: String): List<Employees> {
+      return employeeRepository.findByFirstNameStartingWithIgnoreCase(firstLetter)
+    }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+//val regexPattern = "^$firstLetter"
+//val query = Query.query(Criteria.where("firstName").regex(regexPattern, "i"))
+//return employeeRepository.findByFirstNameRegexIgnoreCase(regexPattern)
