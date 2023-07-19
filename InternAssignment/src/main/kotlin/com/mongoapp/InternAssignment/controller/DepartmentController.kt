@@ -17,13 +17,13 @@ class DepartmentController(private val service: DepartmentService) {
     @GetMapping("")
     fun getDepartments():Collection<Departments> = service.getDepartments()
 
-    @GetMapping("/{departmentId}")
+    @GetMapping("get/{departmentId}")
     fun getDepartment(@PathVariable departmentId: Int):Departments?=service.getDepartment(departmentId)
 
     @PostMapping("")
     fun addDepartment(@RequestBody department: Departments):Departments=service.addDepartment(department)
 
-    @DeleteMapping("/{departmentId}")
+    @DeleteMapping("delete/{departmentId}")
     fun deleteDepartment(@PathVariable departmentId:Int):Departments=service.deleteDepartment(departmentId)
 
 

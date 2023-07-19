@@ -33,20 +33,20 @@ class EmployeeController(private val service: EmployeeService) {
 //    @GetMapping("/{firstName}")
 //    fun findEmployee(@PathVariable firstName:String):Employees=service.findEmployee(firstName)
 
-    @GetMapping("/{employeeId}")
+    @GetMapping("get/{employeeId}")
     fun findEmployeeById(@PathVariable employeeId:Int):Employees?{
 
         return service.findEmployeeById(employeeId)
     }
 
-    @DeleteMapping("/{employeeId}")
+    @DeleteMapping("delete/{employeeId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deleteEmployee(@PathVariable employeeId :Int):Employees= service.deleteEmployee(employeeId)
 
     @GetMapping("/department/{employeeId}")
     fun getEmployeeDepartment(@PathVariable employeeId: Int):Departments?=service.getEmployeeDepartment(employeeId)
 
-    @PatchMapping("/{employeeId}")
+    @PatchMapping("patch/{employeeId}")
      fun updateEmployee(@RequestBody employee: Employees,@PathVariable employeeId: Int):Employees=service.updateEmployee(employee,employeeId)
 
 
