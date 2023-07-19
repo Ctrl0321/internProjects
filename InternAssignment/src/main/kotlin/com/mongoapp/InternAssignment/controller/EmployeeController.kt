@@ -1,6 +1,6 @@
 package com.mongoapp.InternAssignment.controller
 
-import com.mongoapp.InternAssignment.datasource.EmployeeId
+import com.mongoapp.InternAssignment.model.Departments
 import com.mongoapp.InternAssignment.model.Employees
 import com.mongoapp.InternAssignment.service.EmployeeService
 import org.springframework.http.HttpStatus
@@ -17,6 +17,10 @@ class EmployeeController(private val service: EmployeeService) {
     fun handleNotFound(e: NoSuchElementException): ResponseEntity<String> =
         ResponseEntity(e.message,HttpStatus.NOT_FOUND)
 
+    @ExceptionHandler(IllegalArgumentException::class)
+    fun handleBadRequest(e:IllegalArgumentException):ResponseEntity<String> =
+        ResponseEntity(e.message,HttpStatus.BAD_REQUEST)
+
 
 
     @GetMapping("")
@@ -30,7 +34,7 @@ class EmployeeController(private val service: EmployeeService) {
 //    fun findEmployee(@PathVariable firstName:String):Employees=service.findEmployee(firstName)
 
     @GetMapping("/{employeeId}")
-    fun findEmployeeById(@PathVariable employeeId:Int):Employees{
+    fun findEmployeeById(@PathVariable employeeId:Int):Employees?{
 
         return service.findEmployeeById(employeeId)
     }
@@ -39,9 +43,11 @@ class EmployeeController(private val service: EmployeeService) {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun deleteEmployee(@PathVariable employeeId :Int):Employees= service.deleteEmployee(employeeId)
 
+    @GetMapping("/department/{employeeId}")
+    fun getEmployeeDepartment(@PathVariable employeeId: Int):Departments?=service.getEmployeeDepartment(employeeId)
 
-//    @PatchMapping("/patch")
-//    fun patchEmployee(@RequestBody employee: Employees):Employees=service.patchEmployee(employee)
+    @PatchMapping("/{employeeId}")
+     fun updateEmployee(@RequestBody employee: Employees,@PathVariable employeeId: Int):Employees=service.updateEmployee(employee,employeeId)
 
 
 }

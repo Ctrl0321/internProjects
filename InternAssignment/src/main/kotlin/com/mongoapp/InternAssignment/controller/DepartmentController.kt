@@ -18,7 +18,7 @@ class DepartmentController(private val service: DepartmentService) {
     fun getDepartments():Collection<Departments> = service.getDepartments()
 
     @GetMapping("/{departmentId}")
-    fun getDepartment(@PathVariable departmentId: Int):Departments=service.getDepartment(departmentId)
+    fun getDepartment(@PathVariable departmentId: Int):Departments?=service.getDepartment(departmentId)
 
     @PostMapping("")
     fun addDepartment(@RequestBody department: Departments):Departments=service.addDepartment(department)
