@@ -44,7 +44,7 @@ reverseArray(numbers)
 printPetDetails(cat)
 printPetDetails(shark)
 console.log(combine("Hi","Aathiq"));
-console.log(getDayName(DaysOfWeek.moday));
+console.log(getDayName(DaysOfWeek.MONDAY));
 console.log(objectOfAddition.calculate(5,2));
 console.log(objectOfSubstraction.calculate(5,2));
 console.log(objectOfMultiplication.calculate(5,2))

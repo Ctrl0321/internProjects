@@ -33,19 +33,19 @@ function combine<A,B>(a:A,b:B){
   
 function  getDayName(day:DaysOfWeek):String{
     switch(day){
-        case DaysOfWeek.moday:
+        case DaysOfWeek.MONDAY:
             return "monday"
-        case DaysOfWeek.tuesday:
+        case DaysOfWeek.TUESDAY:
             return "tuesday"
-        case DaysOfWeek.wednesday:
+        case DaysOfWeek.WEDNESDAY:
             return "wednesday"   
-        case DaysOfWeek.thursday:
+        case DaysOfWeek.THURSDAY:
             return "Thursday" 
-        case DaysOfWeek.friday:
+        case DaysOfWeek.FRIDAY:
             return "friday"
-        case DaysOfWeek.saturday:
+        case DaysOfWeek.SATURDAY:
             return "saturday"
-        case DaysOfWeek.sunday:
+        case DaysOfWeek.SUNDAY:
             return "sunday"
         default:
             return "Invalid Day"

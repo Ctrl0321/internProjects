@@ -2,12 +2,12 @@
 exports.__esModule = true;
 var DaysOfWeek;
 (function (DaysOfWeek) {
-    DaysOfWeek[DaysOfWeek["moday"] = 0] = "moday";
-    DaysOfWeek[DaysOfWeek["tuesday"] = 1] = "tuesday";
-    DaysOfWeek[DaysOfWeek["wednesday"] = 2] = "wednesday";
-    DaysOfWeek[DaysOfWeek["thursday"] = 3] = "thursday";
-    DaysOfWeek[DaysOfWeek["friday"] = 4] = "friday";
-    DaysOfWeek[DaysOfWeek["saturday"] = 5] = "saturday";
-    DaysOfWeek[DaysOfWeek["sunday"] = 6] = "sunday";
+    DaysOfWeek[DaysOfWeek["MONDAY"] = 0] = "MONDAY";
+    DaysOfWeek[DaysOfWeek["TUESDAY"] = 1] = "TUESDAY";
+    DaysOfWeek[DaysOfWeek["WEDNESDAY"] = 2] = "WEDNESDAY";
+    DaysOfWeek[DaysOfWeek["THURSDAY"] = 3] = "THURSDAY";
+    DaysOfWeek[DaysOfWeek["FRIDAY"] = 4] = "FRIDAY";
+    DaysOfWeek[DaysOfWeek["SATURDAY"] = 5] = "SATURDAY";
+    DaysOfWeek[DaysOfWeek["SUNDAY"] = 6] = "SUNDAY";
 })(DaysOfWeek || (DaysOfWeek = {}));
 exports.DaysOfWeek = DaysOfWeek;

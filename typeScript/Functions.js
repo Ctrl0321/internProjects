@@ -28,19 +28,19 @@ function combine(a, b) {
 exports.combine = combine;
 function getDayName(day) {
     switch (day) {
-        case enum_1.DaysOfWeek.moday:
+        case enum_1.DaysOfWeek.MONDAY:
             return "monday";
-        case enum_1.DaysOfWeek.tuesday:
+        case enum_1.DaysOfWeek.TUESDAY:
             return "tuesday";
-        case enum_1.DaysOfWeek.wednesday:
+        case enum_1.DaysOfWeek.WEDNESDAY:
             return "wednesday";
-        case enum_1.DaysOfWeek.thursday:
+        case enum_1.DaysOfWeek.THURSDAY:
             return "Thursday";
-        case enum_1.DaysOfWeek.friday:
+        case enum_1.DaysOfWeek.FRIDAY:
             return "friday";
-        case enum_1.DaysOfWeek.saturday:
+        case enum_1.DaysOfWeek.SATURDAY:
             return "saturday";
-        case enum_1.DaysOfWeek.sunday:
+        case enum_1.DaysOfWeek.SUNDAY:
             return "sunday";
         default:
             return "Invalid Day";

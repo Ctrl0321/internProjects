@@ -32,7 +32,7 @@ Functions_1.reverseArray(numbers);
 Functions_1.printPetDetails(cat);
 Functions_1.printPetDetails(shark);
 console.log(Functions_1.combine("Hi", "Aathiq"));
-console.log(Functions_1.getDayName(enum_1.DaysOfWeek.moday));
+console.log(Functions_1.getDayName(enum_1.DaysOfWeek.MONDAY));
 console.log(objectOfAddition.calculate(5, 2));
 console.log(objectOfSubstraction.calculate(5, 2));
 console.log(objectOfMultiplication.calculate(5, 2));
