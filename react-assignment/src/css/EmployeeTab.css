@@ -1,0 +1,35 @@
+
+   thead tr {
+    display: flex;
+    justify-content: space-around;
+  }
+  tbody tr{
+    display: flex;
+    justify-content: space-around;
+  }
+  th{
+    font-weight: 600;
+  }
+  th,td{
+    width: 125px;
+    text-align: center;
+  }
+  table {
+    border-collapse: collapse;
+    margin: 10% auto;
+    
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
