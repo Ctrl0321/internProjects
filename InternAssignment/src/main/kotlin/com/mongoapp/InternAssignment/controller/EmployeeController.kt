@@ -10,6 +10,7 @@ import java.util.NoSuchElementException
 
 
 @RestController
+@CrossOrigin(origins = ["http://localhost:3000"], maxAge=3600, allowCredentials = "true")
 @RequestMapping("/api/employees")
 class EmployeeController(private val service: EmployeeService) {
 
@@ -30,24 +31,24 @@ class EmployeeController(private val service: EmployeeService) {
     @ResponseStatus(HttpStatus.CREATED)
     fun addEmployee(@RequestBody employee:Employees):Employees=service.addEmployee(employee)
 
-//    @GetMapping("/{firstName}")
-//    fun findEmployee(@PathVariable firstName:String):Employees=service.findEmployee(firstName)
+   @GetMapping("/{firstName}")
+    fun findEmployee(@PathVariable firstName:String):Employees?=service.findEmployee(firstName)
 
-    @GetMapping("get/{employeeId}")
-    fun findEmployeeById(@PathVariable employeeId:Int):Employees?{
+//    @GetMapping("get/{employeeId}")
+//    fun findEmployeeById(@PathVariable employeeId:Int):Employees?{
+//
+//        return service.findEmployeeById(employeeId)
+//    }
 
-        return service.findEmployeeById(employeeId)
-    }
-
-    @DeleteMapping("delete/{employeeId}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    fun deleteEmployee(@PathVariable employeeId :Int):Employees= service.deleteEmployee(employeeId)
-
-    @GetMapping("/department/{employeeId}")
-    fun getEmployeeDepartment(@PathVariable employeeId: Int):Departments?=service.getEmployeeDepartment(employeeId)
-
-    @PatchMapping("patch/{employeeId}")
-     fun updateEmployee(@RequestBody employee: Employees,@PathVariable employeeId: Int):Employees=service.updateEmployee(employee,employeeId)
+//    @DeleteMapping("delete/{employeeId}")
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+//    fun deleteEmployee(@PathVariable employeeId :Int):Employees= service.deleteEmployee(employeeId)
+//
+//    @GetMapping("/department/{employeeId}")
+//    fun getEmployeeDepartment(@PathVariable employeeId: Int):Departments?=service.getEmployeeDepartment(employeeId)
+//
+//    @PatchMapping("patch/{employeeId}")
+//     fun updateEmployee(@RequestBody employee: Employees,@PathVariable employeeId: Int):Employees=service.updateEmployee(employee,employeeId)
 
     @GetMapping("/firstLetter/{firstLetter}")
     fun gtEmployeeWithFirstLetter(@PathVariable firstLetter:String):List<Employees> = service.getEmployeeWithFirstLetter(firstLetter)

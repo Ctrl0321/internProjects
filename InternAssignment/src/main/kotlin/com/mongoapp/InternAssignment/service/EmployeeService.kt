@@ -28,39 +28,51 @@ class EmployeeService(val employeeRepository: EmployeesRepository, val depReposi
     }
 
 
-    fun findEmployeeById(employeeId: Int): Employees? {
-         employeeRepository.findByEmployeeId(employeeId)?.let {
-             return employeeRepository.findByEmployeeId(employeeId)
-         }
-            ?: throw IllegalArgumentException("Employee with ID $employeeId does not exist.")
-    }
-    fun deleteEmployee(employeeId: Int): Employees {
-       employeeRepository.findByEmployeeId(employeeId)?.let {
-           return employeeRepository.deleteByEmployeeId(employeeId)
-       } ?: throw IllegalArgumentException("Employee with ID $employeeId does not exist.")
+//    fun findEmployeeById(employeeId: Int): Employees? {
+//         employeeRepository.findByEmployeeId(employeeId)?.let {
+//             return employeeRepository.findByEmployeeId(employeeId)
+//         }
+//            ?: throw IllegalArgumentException("Employee with ID $employeeId does not exist.")
+//    }
+//    fun deleteEmployee(employeeId: Int): Employees {
+//       employeeRepository.findByEmployeeId(employeeId)?.let {
+//           return employeeRepository.deleteByEmployeeId(employeeId)
+//       } ?: throw IllegalArgumentException("Employee with ID $employeeId does not exist.")
+//
+//
+//    }
 
-
-    }
-
-    fun getEmployeeDepartment(employeeId: Int): Departments? {
-        val existingEmployee= employeeRepository.findByEmployeeId(employeeId)
-            ?: throw IllegalArgumentException("Employee with ID $employeeId does not exist.")
-
-        val employeeDepartment=existingEmployee.departmentId
-        return  depRepository.findByDepartmentId(employeeDepartment)
-
-    }
-
-    fun updateEmployee(employee: Employees ,employeeId: Int): Employees {
-        val existingEmployee=employeeRepository.findByEmployeeId(employeeId)
-            ?:throw IllegalArgumentException("employee id with $employeeId doesn't exist")
-
-        employeeRepository.deleteByEmployeeId(existingEmployee.employeeId)
-        return  addEmployee(employee)
-    }
+//    fun getEmployeeDepartment(employeeId: Int): Departments? {
+//        val existingEmployee= employeeRepository.findByEmployeeId(employeeId)
+//            ?: throw IllegalArgumentException("Employee with ID $employeeId does not exist.")
+//
+//        val employeeDepartment=existingEmployee.departmentId
+//        return  depRepository.findByDepartmentId(employeeDepartment)
+//
+//    }
+//
+//    fun updateEmployee(employee: Employees ,employeeId: Int): Employees {
+//        val existingEmployee=employeeRepository.findByEmployeeId(employeeId)
+//            ?:throw IllegalArgumentException("employee id with $employeeId doesn't exist")
+//
+//        employeeRepository.deleteByEmployeeId(existingEmployee.employeeId)
+//        return  addEmployee(employee)
+//    }
 
     fun getEmployeeWithFirstLetter(firstLetter: String): List<Employees> {
       return employeeRepository.findByFirstNameStartingWithIgnoreCase(firstLetter)
+    }
+
+    fun findEmployee(firstName: String): Employees? {
+//       employeeRepository.findByFirstName(firstName)?.let {
+//           return employeeRepository.findByFirstName(firstName)
+//       } ?: throw IllegalArgumentException("Department with ID ${employee.departmentId} does not exist.")
+//
+
+        employeeRepository.findByFirstName(firstName)?.let {
+            return employeeRepository.findByFirstName(firstName)
+        } ?: throw IllegalArgumentException("Employee with Name $firstName does not exist.")
+
     }
 
 
